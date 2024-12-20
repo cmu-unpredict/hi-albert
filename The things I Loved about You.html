@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Things I Loved About You</title>
+    <style>
+        body {
+            font-family: Verdana, Tahoma, sans-serif;
+            background-color: #fff3f6;
+            border: 5px solid #d65b5b; /* Border size, style, and color */ 
+            margin: 0; /* Remove default body margin */ 
+            padding: 20px; /* Add padding inside the border */
+            height: 200vh; /* Ensures page is scrollable */
+        }
+        .header { margin-top: 20px; /* Add margin to the top of the header */ }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+        }
+        .header {
+            position: static;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #C93134;
+            color: rgb(255, 255, 255);
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transform: translateY(-100%); /* Start off-screen */
+            animation: slideIn 1s ease-out forwards;  
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateY(-100%);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .notes-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 100px; /* Push content below the header */
+            text-align: center;
+        }
+
+        .sticky-note {
+            padding: 20px;
+            background-color: #ffeb3b;
+            color: #554848;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            position: relative;
+            animation: fadeIn 2s ease-in-out;
+            transform: rotate(0deg);
+        }
+
+        .sticky-note p {
+            margin: 0;
+            font-size: 14px;
+            font-family: 'Times New Roman', Times, serif;
+            line-height: 1.5;
+        }
+
+        .sticky-note:hover {
+            animation: shake 0.5s;
+        }
+
+        @keyframes shake {
+            0% { transform: translate(1px, 1px) rotate(0deg); }
+            10% { transform: translate(-1px, -2px) rotate(-1deg); }
+            20% { transform: translate(-3px, 0px) rotate(1deg); }
+            30% { transform: translate(3px, 2px) rotate(0deg); }
+            40% { transform: translate(1px, -1px) rotate(1deg); }
+            50% { transform: translate(-1px, 2px) rotate(-1deg); }
+            60% { transform: translate(-3px, 1px) rotate(0deg); }
+            70% { transform: translate(3px, 1px) rotate(-1deg); }
+            80% { transform: translate(-1px, -1px) rotate(1deg); }
+            90% { transform: translate(1px, 2px) rotate(0deg); }
+            100% { transform: translate(1px, -2px) rotate(-1deg); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .emoji {
+        font-size: 20px;
+        position: absolute;
+        animation: moveEmoji 10s linear infinite;
+    }
+
+        @keyframes moveEmoji {
+        0% {
+            transform: translateX(0vw) translateY(0vh);
+            opacity: 1;
+        }
+        50% {
+            transform: translateX(50vw) translateY(50vh); /* Move within bounds */
+            opacity: 1;
+        }
+        100% {
+            transform: translateX(100vw) translateY(100vh); /* Stays on screen */
+            opacity: 1;
+        }
+        }
+        .colors {
+            --yellow: #faed7d;
+            --pink: #ff9dbe;
+            --blue: #a6ddf5;
+            --green: #94af73;
+            --orange: #f1c893;
+            --red: #ff3f3f;
+            --cyan: #D6FFFA;
+            --brown: #E9C86F;
+        }
+        footer {
+      text-align: center;
+      padding: 20px;
+      background: #d65076;
+      color: white;
+    }
+
+    footer a {
+      color: #47110c;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+    .framed-paragraph { border: 1px solid #080505;
+            padding: 10px;  
+            margin: 20px;  
+            border-radius: 5px; 
+            text-align: left;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: large;}
+    .next-button {
+          display: inline-block;
+          padding: 10px 20px;
+          font-size: 16px;
+          color: white;
+          background-color: #C93134;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          text-align: center;
+          text-decoration: none;
+          transition: background-color 0.3s, transform 0.3s;
+        }
+    
+        /* Hover effect */
+        .next-button:hover {
+          background-color: #a5282b; /* Slightly darker red for hover effect */
+          transform: scale(1.1);
+        }
+
+    </style>
+</head>
+<body class="colors">
+
+<div class="container">
+    <div class="header">
+    <h1>THE THINGS I LOVED ABOUT YOU!</h1>
+    <p> couldn't even list them all</p>
+    </div>
+
+    <div class="emoji-container"></div>
+
+    <script>
+        const emojis = ["✨", "❤️", "💋", "✨", "❤️", "💋", "✨", "❤️", "💋", "✨", "❤️", "💋","✨", "❤️", "💋", "✨", "❤️", "💋", "✨", "❤️", "💋", "✨", "❤️", "💋"];
+        const emojiContainer = document.querySelector('.emoji-container');
+
+        for (let i = 0; i < 30; i++) {
+            let emojiDiv = document.createElement("div");
+            emojiDiv.className = "emoji";
+            emojiDiv.style.left = Math.random() * 100 + "vw";
+            emojiDiv.style.top = Math.random() * 100 + "vh";
+            emojiDiv.style.animationDelay = Math.random() * 10 + "s";
+            emojiDiv.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+            emojiContainer.appendChild(emojiDiv);
+        }
+    </script>
+
+<div class="notes-container framed-paragraph">
+    <div class="sticky-note" style="background-color: var(--yellow);">
+        <p>The way your lips curve into that irresistible smirk.</p>
+    </div>
+    <div class="sticky-note" style="background-color: var(--blue);">
+        <p>Your kind and genuine heart.</p>
+    </div>
+    <div class="sticky-note" style="background-color: var(--pink);">
+        <p>The heat in your gaze when you look at me like I'm yours.</p>
+    </div>
+    <div class="sticky-note" style="background-color: var(--orange);">
+        <p>The strength of your hands and how they hold me close.</p>
+    </div>
+    <div class="sticky-note" style="background-color: var(--green);">
+        <p>How your voice gets deeper when you whisper my name.</p>
+    </div>
+    <div class="sticky-note" style="background-color: var(--red);">
+        <p>How your scent lingers on me long after you're gone.</p>
+    </div>
+    <div class="sticky-note" style="background-color: var(--yellow);">
+        <p>The fire in your eyes when you're passionate about something.</p>
+    </div>
+    <div class="sticky-note" style="background-color: var(--green);">
+        <p>The way you run your fingers through your hair, it's maddeningly attractive.</p>
+    </div>
+    <div class="sticky-note" style="background-color: var(--blue);">
+        <p>How you make even the most casual moments feel charged with energy.</p>
+    </div>
+    <div class="sticky-note" style="background-color: var(--orange);">
+        <p>How you're not afraid to be vulnerable with me.</p>
+    </div>
+    <div class="sticky-note" style="background-color: var(--pink);">
+        <p>How you never give up, no matter how tough things get.</p>
+    </div>
+    <div class="sticky-note" style="background-color: var(--green);">
+        <p>How you care for your family and friends.</p>
+    </div>
+    <div class="sticky-note" style="background-color: var(--red);">
+        <p>How you're always honest, even when it's hard.</p>
+    </div>
+    <div class="sticky-note" style="background-color: var(--cyan);">
+        <p>Your goofy side that always keeps things fun.</p>
+    </div>
+    <div class="sticky-note" style="background-color: var(--pink);">
+        <p>how you respect me and my opinions.</p>
+    </div>
+    <div class="sticky-note" style="background-color: var(--cyan);">
+        <p>Your unwavering support in everything I do.</p>
+    </div>
+    <div class="sticky-note" style="background-color: var(--pink);">
+        <p>Your ability to fix anything, whether it's a problem or a bad day.</p>
+    </div>
+    <div class="sticky-note" style="background-color: var(--blue);">
+        <p>The way you always make time for me.</p>
+    </div>
+    <div class="sticky-note" style="background-color: var(--yellow);">
+        <p>The way you encourage me to be the best version of myself.</p>
+    </div>
+    <div class="sticky-note" style="background-color: var(--red);">
+        <p>Your selflessness and generosity.</p>
+    </div>
+    <div class="sticky-note" style="background-color: var(--blue);">
+        <p>Your sense of humor and how it matches mine.</p>
+    </div>
+    <div class="sticky-note" style="background-color: var(--brown);">
+        <p>Your love for learning and growing.</p>
+    </div>
+    <div class="sticky-note" style="background-color: var(--cyan);">
+        <p>Your love for animals.</p>
+    </div>
+    <div class="sticky-note" style="background-color: var(--green);">
+        <p>How you always adored me and loved me.</p>
+    </div>
+    <div class="sticky-note" style="background-color: var(--pink);">
+        <p>How you tell me that i'm wrong, but not judged me.</p>
+    </div>
+    <div class="sticky-note" style="background-color: var(--red);">
+        <p>Your ability to make me feel like I've found my home in you.</p>
+    </div>
+    <div class="sticky-note" style="background-color: var(--yellow);">
+        <p>The way you share your world with me.</p>
+    </div>
+    <div class="sticky-note" style="background-color: var(--pink);">
+        <p>The way you always make time for me.</p>
+    </div>
+    <div class="sticky-note" style="background-color: var(--brown);">
+        <p>The way you hold my hand and make me feel safe.</p>
+    </div>
+    <div class="sticky-note" style="background-color: var(--blue);">
+        <p>Simply, because you're you-and that's everything I've ever wanted.</p>
+    </div>
+</div>
+<button class="next-button" onclick="goToNextPage()">Back</button>
+<script>
+  function goToNextPage() {
+    window.location.href = 'file:///C:/Users/cindy/Cindy\'s%20Paper/notesforyou/The First Chapter.html';
+  }
+</script>  
+
+<button class="next-button" onclick="goToNextPage()">Next</button>
+<script>
+  function goToNextPage() {
+    // Use double backslashes and escape the single quote
+    window.location.href = 'C:\\Users\\cindy\\Cindy\'s Paper\\notesforyou\\The Art Sanctuary.html';
+  }
+</script>   
+
+<footer>
+    <p>&copy; Created By Cimut | <a href="#">@cindymegautari</a></p>
+  </footer>
+
+</body>
+</html>

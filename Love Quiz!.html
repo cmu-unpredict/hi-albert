@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE FIRST CHAPTER</title>
+    <style>
+     body {
+            font-family: Verdana, Tahoma, sans-serif;
+            background-color: #fff3f6;
+            border: 5px solid #d65b5b; /
+            margin: 0;  
+            padding: 20px; 
+            height: 540vh;  
+            justify-content: center;    
+            align-items: center;
+        }
+        .header { margin-top: 10px; }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+        }
+        .header {
+            position: static;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #C93134;
+            color: rgb(255, 255, 255);
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transform: translateY(-100%); 
+            animation: slideIn 1s ease-out forwards;  
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateY(-100%);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+        h3,h4,h5{
+            font-family: 'Times New Roman', Times, serif
+            text-align: center;
+            padding: 25px;
+            color: #080505;
+        }
+        .centered-paragraph { text-align: center; }
+        .framed-paragraph { border: 1px solid #3f1515;
+            padding: 10px;  
+            margin: 10px;  
+            border-radius: 5px; 
+            text-align: justify;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: large;
+            justify-content: center;
+        }
+        .quiz-container {
+            background-color: #fac9c9;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    text-align: center; 
+}
+
+    h2 {
+      text-align: center;
+      color: #6b0555;
+      margin-bottom: 30px;
+    }
+
+    .question {
+      font-size: 18px;
+      margin-bottom: 15px;
+      color:#47110c
+    }
+
+    .answers {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 25px;
+      color: #47110c;
+    }
+
+    .answers label {
+      font-size: 16px;
+      padding: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin: 5px 0;
+      border-radius: 5px;
+      background-color: #f0f0f0;
+    }
+
+    .answers input[type="radio"] {
+      display: none;
+    }
+
+    .answers input[type="radio"]:checked + label {
+      background-color: #3b8c7b;
+      color: white;
+    }
+
+    .answers label:hover {
+      background-color: #e0f4e1;
+    }
+
+    .result {
+      font-size: 20px;
+      font-weight: bold;
+      text-align: center;
+      color: #3b8c7b;
+      margin-top: 20px;
+      display: none;
+    }
+
+    .submit-btn {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background-color: #4d0707;
+      color: white;
+      font-size: 18px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .submit-btn:hover {
+      background-color: #da3a3a;
+    }
+        .emoji {
+            font-size: 10px;
+            position: fixed;
+            animation: moveEmoji 10s linear infinite;
+        }   
+
+        @keyframes moveEmoji {
+            0% {
+                transform: translateX(-100vw) translateY(0vh);
+                opacity: 1;
+            }
+            50% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(100vw) translateY(100vh);
+                opacity: 0;
+            }
+        }
+        .animated-image { 
+            width: 200px; height: 200px; animation: moveUpDown 2s infinite; } 
+        @keyframes fadein { 0% { transform: translateY(0); } 50% { transform: translateY(-20px); } 100% 
+        { transform: translateY(0); } }
+    
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #d65076;
+      color: white;
+    }
+
+    footer a {
+      color: #47110c;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    .quiz-container {
+      display: flex;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .quiz {
+      width: 25%;
+      padding: 20px;
+      background: #ffdede;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+
+    .quiz h2 {
+      margin-bottom: 20px;
+    }
+
+    .quiz button {
+      background: #ff6f61;
+      color: white;
+      border: none;
+      padding: 10px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .quiz button:hover {
+      background: #d65076;
+    }
+
+    .quiz-result {
+      margin-top: 20px;
+      padding: 10px;
+      border-radius: 5px;
+      background: #f9f9f9;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      display: none;
+    }
+
+    .quiz-result.correct {
+      color: green;
+    }
+
+    .quiz-result.incorrect {
+      color: red;
+    }
+    .next-button {
+          display: inline-block;
+          padding: 10px 20px;
+          font-size: 16px;
+          color: white;
+          background-color: #C93134;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          text-align: center;
+          text-decoration: none;
+          transition: background-color 0.3s, transform 0.3s;
+        }
+    
+        /* Hover effect */
+        .next-button:hover {
+          background-color: #a5282b; /* Slightly darker red for hover effect */
+          transform: scale(1.1);
+        }    
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>LOVE QUIZ!</h1>
+        <p>Answer with your best!</p>
+    </div>
+
+<body>
+<p>Play this while you scroll❤️</p> 
+    <audio controls> 
+    <source src="C:\Users\cindy\Cindy's Paper\notesforyou\videos\OIIAOIIA CAT x AFTER DARK.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio>
+    <h3 class="framed-paragraph centered-paragraph">The Quizlet </h3>
+    <h4 class="framed-paragraph centered-paragraph">
+        <div class="quiz-container">
+            <h2>Interactive Quiz</h2>
+            <form id="quizForm">
+              <div class="question">
+                <p>1. What is the date of our first chat on Bumble?</p>
+                <div class="answers">
+                  <input type="radio" id="q1a1" name="q1" value="January 5th">
+                  <label for="q1a1">January 5th</label>
+                  <input type="radio" id="q1a2" name="q1" value="January 11th">
+                  <label for="q1a2">January 11th</label>
+                  <input type="radio" id="q1a3" name="q1" value="January 8th">
+                  <label for="q1a3">January 8th</label>
+                </div>
+              </div>
+        
+              <div class="question">
+                <p>2. Where did we go on our second date?</p>
+                <div class="answers">
+                  <input type="radio" id="q2a1" name="q2" value="Coffee Shop">
+                  <label for="q2a1">Coffee Shop</label>
+                  <input type="radio" id="q2a2" name="q2" value="Mall">
+                  <label for="q2a2">Mall</label>
+                  <input type="radio" id="q2a3" name="q2" value="Japanese Restaurant">
+                  <label for="q2a3">Japanese Restaurant</label>
+                </div>
+              </div>
+        
+              <div class="question">
+                <p>3. What did I call you on our first chat?</p>
+                <div class="answers">
+                  <input type="radio" id="q3a1" name="q3" value="Kak">
+                  <label for="q3a1">Kak</label>
+                  <input type="radio" id="q3a2" name="q3" value="Bang">
+                  <label for="q3a2">Bang</label>
+                  <input type="radio" id="q3a3" name="q3" value="Mas">
+                  <label for="q3a3">Mas</label>
+                </div>
+              </div>
+        
+              <div class="question">
+                <p>4. What do you think about my feeling towards you?</p>
+                <div class="answers">
+                  <input type="radio" id="q4a1" name="q4" value="Hate">
+                  <label for="q4a1">Hate</label>
+                  <input type="radio" id="q4a2" name="q4" value="Love">
+                  <label for="q4a2">Love</label>
+                  <input type="radio" id="q4a3" name="q4" value="Lust">
+                  <label for="q4a3">Lust</label>
+                </div>
+              </div>
+        
+              <div class="question">
+                <p>5. What is our favorite food?</p>
+                <div class="answers">
+                  <input type="radio" id="q5a1" name="q5" value="Pizza">
+                  <label for="q5a1">Pizza</label>
+                  <input type="radio" id="q5a2" name="q5" value="Steak">
+                  <label for="q5a2">Steak</label>
+                  <input type="radio" id="q5a3" name="q5" value="Sushi">
+                  <label for="q5a3">Sushi</label>
+                </div>
+              </div>
+        
+              <div class="question">
+                <p>6. What is our favorite song?</p>
+                <div class="answers">
+                  <input type="radio" id="q6a1" name="q6" value="Timeless">
+                  <label for="q6a1">Timeless</label>
+                  <input type="radio" id="q6a2" name="q6" value="Sweater Weather">
+                  <label for="q6a2">Sweater Weather</label>
+                  <input type="radio" id="q6a3" name="q6" value="After Dark">
+                  <label for="q6a3">After Dark</label>
+                </div>
+              </div>    
+        
+              <div class="question">
+                <p>7. What is the name of our furbaby?</p>
+                <div class="answers">
+                  <input type="radio" id="q7a1" name="q7" value="Lupi">
+                  <label for="q7a1">Lupi</label>
+                  <input type="radio" id="q7a2" name="q7" value="Lipu">
+                  <label for="q7a2">Lipu</label>
+                  <input type="radio" id="q7a3" name="q7" value="Lupa">
+                  <label for="q7a3">Lupa</label>
+                </div>
+              </div>    
+        
+              <div class="question">
+                <p>8. Are we happy in this relationship?</p>
+                <div class="answers">
+                  <input type="radio" id="q8a1" name="q8" value="A little">
+                  <label for="q8a1">A little</label>
+                  <input type="radio" id="q8a2" name="q8" value="Maybe">
+                  <label for="q8a2">Maybe</label>
+                  <input type="radio" id="q8a3" name="q8" value="Absolutely">
+                  <label for="q8a3">Absolutely</label>
+                </div>
+              </div>  
+        
+              <div class="question">
+                <p>9. What is our love language?</p>
+                <div class="answers">
+                   <input type="radio" id="q9a1" name="q9" value="Physical touch">
+                   <label for="q9a1">Physical touch</label>
+                   <input type="radio" id="q9a2" name="q9" value="All love language">
+                   <label for="q9a2">All love language</label>
+                   <input type="radio" id="q9a3" name="q9" value="Quality time">
+                   <label for="q9a3">Quality time</label>
+                </div>
+              </div>
+        
+              <div class="question">
+                <p>10. What's my favorite activity to spend time together?</p>
+                <div class="answers">
+                   <input type="radio" id="q10a1" name="q10" value="Strolling">
+                   <label for="q10a1">Strolling</label>
+                   <input type="radio" id="q10a2" name="q10" value="Bingewatch">
+                   <label for="q10a2">Bingewatch</label>
+                   <input type="radio" id="q10a3" name="q10" value="Eating out">
+                   <label for="q10a3">Eating out</label>
+                </div>
+              </div>
+        
+              <div class="question">
+                <p>11. What is my favorite movie genre?</p>
+                <div class="answers">
+                   <input type="radio" id="q11a1" name="q11" value="Romance">
+                   <label for="q11a1">Romance</label>
+                   <input type="radio" id="q11a2" name="q11" value="Action">
+                   <label for="q11a2">Action</label>
+                   <input type="radio" id="q11a3" name="q11" value="Horror">
+                   <label for="q11a3">Horror</label>
+                </div>
+              </div> 
+        
+              <div class="question">
+                <p>12. How do i deal with stress??</p>
+                <div class="answers">
+                   <input type="radio" id="q12a1" name="q12" value="Solitude">
+                   <label for="q12a1">Solitude</label>
+                   <input type="radio" id="q12a2" name="q12" value="Distract myself">
+                   <label for="q12a2">Distract myself</label>
+                   <input type="radio" id="q12a3" name="q12" value="Talk to you or someone about it">
+                   <label for="q12a3">Talk to you or someone about it</label>
+                </div>
+              </div>
+        
+              <div class="question">
+                <p>13. Which of these desserts would you pick for me?</p>
+                <div class="answers">
+                   <input type="radio" id="q13a1" name="q13" value="Chocolate cake">
+                   <label for="q13a1">Chocolate cake</label>
+                   <input type="radio" id="q13a2" name="q13" value="Ice cream">
+                   <label for="q13a2">Ice cream</label>
+                   <input type="radio" id="q13a3" name="q13" value="Fruit">
+                   <label for="q13a3">Fruit</label>
+                </div>
+                </div>
+
+              <div class="question">
+                <p>14. What is my favorite color?</p>
+                <div class="answers">
+                   <input type="radio" id="q14a1" name="q14" value="Blue">
+                   <label for="q14a1">Blue</label>
+                   <input type="radio" id="q14a2" name="q14" value="White">
+                   <label for="q14a2">White</label>
+                   <input type="radio" id="q14a3" name="q14" value="Pink">
+                   <label for="q14a3">Pink</label>
+                </div>
+              </div>
+        
+              <button type="button" class="submit-btn" onclick="calculateResult()">Submit Quiz</button>
+            </form>
+        
+            <div class="result" id="result"></div>
+          </div>
+        
+          <script>
+            function calculateResult() {
+              let score = 0;
+        
+              // Get selected answers
+              const q1 = document.querySelector('input[name="q1"]:checked');
+              const q2 = document.querySelector('input[name="q2"]:checked');
+              const q3 = document.querySelector('input[name="q3"]:checked');
+              const q4 = document.querySelector('input[name="q4"]:checked');
+              const q5 = document.querySelector('input[name="q5"]:checked');
+              const q6 = document.querySelector('input[name="q6"]:checked');
+              const q7 = document.querySelector('input[name="q7"]:checked');
+              const q8 = document.querySelector('input[name="q8"]:checked');
+              const q9 = document.querySelector('input[name="q9"]:checked');
+              const q10 = document.querySelector('input[name="q10"]:checked');
+              const q11 = document.querySelector('input[name="q11"]:checked');
+              const q12 = document.querySelector('input[name="q12"]:checked');
+              const q13 = document.querySelector('input[name="q13"]:checked');
+              const q14 = document.querySelector('input[name="q14"]:checked');
+        
+              if (q1 && q1.value === "January 5th") score++;
+              if (q2 && q2.value === "Japanese Restaurant") score++;
+              if (q3 && q3.value === "Mas") score++;
+              if (q4 && q4.value === "Love") score++;
+              if (q5 && q5.value === "Steak") score++;
+              if (q6 && q6.value === "After Dark") score++;
+              if (q7 && q7.value === "Lupi") score++;
+              if (q8 && q8.value === "Absolutely") score++;
+              if (q9 && q9.value === "All love language") score++;
+              if (q10 && q10.value === "Bingewatch") score++;
+              if (q11 && q11.value === "Horror") score++;
+              if (q12 && q12.value === "Talk to you or someone about it") score++;
+              if (q13 && q13.value === "Ice cream") score++;
+              if (q14 && q14.value === "Blue") score++;
+        
+        
+              const resultText = `You did it! You score ${score} out of 13.`;
+              const resultDiv = document.getElementById("result");
+              resultDiv.innerText = resultText;
+              resultDiv.style.display = "block";
+            }
+          </script>
+        
+        </div>
+    </h4>
+    <div class="emoji-container"></div>
+
+<script>
+    const emojis = ["✨", "✨", "✨", "✨", "✨", "✨", "✨", "✨","✨", "✨", "✨", "✨", "✨", "✨", "✨", "✨"];
+    const emojiContainer = document.querySelector('.emoji-container');
+
+    for (let i = 0; i < 30; i++) {
+        let emojiDiv = document.createElement("div");
+        emojiDiv.className = "emoji";
+        emojiDiv.style.left = Math.random() * 100 + "vw";
+        emojiDiv.style.top = Math.random() * 100 + "vh";
+        emojiDiv.style.animationDelay = Math.random() * 10 + "s";
+        emojiDiv.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+        emojiContainer.appendChild(emojiDiv);
+    }
+</script>
+<button class="next-button" onclick="goToNextPage()">Back</button>
+    <script>
+      function goToNextPage() {
+        window.location.href = 'file:///C:Users/cindy/Cindy\'s%20Paper/notesforyou/The Art Sanctuary.html';
+      }
+    </script> 
+</body>
+ </script>       
+<footer>
+<p>&copy; Created By Cimut | <a href="#">@cindymegautari</a></p>
+</footer>             
+</body>
+</html>

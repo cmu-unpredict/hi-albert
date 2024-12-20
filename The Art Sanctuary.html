@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE ART SANCTUARY</title>
+    <style>
+     body {
+            font-family: Verdana, Tahoma, sans-serif;
+            background-color: #fff3f6;
+            border: 5px solid #d65b5b; 
+            margin: 0;  
+            padding: 20px; 
+            height: 1985vh; 
+        }
+        .header { margin-top: 10px;  }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+        }
+        .header {
+            position: static;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #C93134;
+            color: rgb(255, 255, 255);
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transform: translateY(-100%); 
+            animation: slideIn 1s ease-out forwards;  
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateY(-100%);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+        h3,h4,h5{
+            font-family: 'Times New Roman', Times, serif
+            text-align: center;
+            padding: 25px;
+            color: #C93134;
+        }
+        .centered-paragraph { text-align: center; }
+        .framed-paragraph { border: 2px solid #C93134;
+            padding: 10px;  
+            margin: 20px;  
+            border-radius: 5px; 
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: large;}
+        .notes-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 100px; 
+            text-align: center;
+        }
+        .gallery { 
+            display: flex; 
+            flex-wrap: wrap;
+            justify-content: center; 
+            align-items: center;
+         } 
+        .gallery span { 
+            margin: 5px; } 
+        .gallery img { 
+            width: 300px; 
+            height: 500px;  
+            object-fit: cover; 
+        }
+        .emoji {
+            font-size: 10px;
+            position: fixed;
+            animation: moveEmoji 10s linear infinite;
+        }   
+
+        @keyframes moveEmoji {
+            0% {
+                transform: translateX(-100vw) translateY(0vh);
+                opacity: 1;
+            }
+            50% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(100vw) translateY(100vh);
+                opacity: 0;
+            }
+        }
+        .animated-image { 
+            width: 200px; height: 200px; animation: moveUpDown 2s infinite; } 
+        @keyframes fadein { 0% { transform: translateY(0); } 50% { transform: translateY(-20px); } 100% 
+        { transform: translateY(0); } }
+        footer {
+      text-align: center;
+      padding: 20px;
+      background: #d65076;
+      color: white;
+    }
+
+    footer a {
+      color: #47110c;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+    .next-button {
+          display: inline-block;
+          padding: 10px 20px;
+          font-size: 16px;
+          color: white;
+          background-color: #C93134;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          text-align: center;
+          text-decoration: none;
+          transition: background-color 0.3s, transform 0.3s;
+        }
+    
+        /* Hover effect */
+        .next-button:hover {
+          background-color: #a5282b; /* Slightly darker red for hover effect */
+          transform: scale(1.1);
+        }    
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>THE ART SANCTUARY</h1>
+        <p>there is nothing, like doing nothing, with you.</p>
+    </div>
+
+<body>
+<p>Play this while you scroll❤️</p> 
+    <audio controls> 
+    <source src="C:\Users\cindy\Cindy's Paper\notesforyou\videos\Waking Up Together With You_[_YouConvert.net_].mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio>
+    <h3 class="framed-paragraph">A Love Like Ours</h3>
+    <h4 class="framed-paragraph">
+    <p>We met in the softest ways, like whispers carried on a breeze.</p>
+    <p>A spark, a smile, in passing days. As if the universe had keys.</p>
+    <p>Your hand in mine, a thread that ties. A story written in the skies.</p>
+    <p>Invisible but ever near, a love that's always been, my dear.</p>
+    <p>Through tangled roads, through winding lanes. I knew your name, though we hadn't met.</p>
+    <p>Like melodies that softly play, a song we'd sing without regret.</p>
+    <P>We danced beneath the stars soft glow. No need for words, just hearts that know."</p>
+    <p>Not fate, not chance, but something more- A love that waited, at the core.</p>
+    <p>The world may turn, the seasons change. But here we are, still not estranged.</P>
+    <P>A love that's timeless, never gone. Like the dawn that greet each morn.</p>
+    </h4>
+    <div class="emoji-container"></div>
+
+<script>
+    const emojis = ["✨", "❤️", "✨", "❤️", "✨", "❤️", "✨", "❤️", "✨", "❤️", "✨", "❤️", "✨", "❤️", "✨", "❤️", "✨", "❤️", "✨", "❤️", "✨", "❤️"];
+    const emojiContainer = document.querySelector('.emoji-container');
+
+    for (let i = 0; i < 30; i++) {
+        let emojiDiv = document.createElement("div");
+        emojiDiv.className = "emoji";
+        emojiDiv.style.left = Math.random() * 100 + "vw";
+        emojiDiv.style.top = Math.random() * 100 + "vh";
+        emojiDiv.style.animationDelay = Math.random() * 10 + "s";
+        emojiDiv.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+        emojiContainer.appendChild(emojiDiv);
+    }
+</script>
+
+</body>
+    <div class="gallery">
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\1F9F334F-EDDE-4AAE-8CAB-8CF0EF4C9949.JPG" class=animated-image></span>
+
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\3C9C5E53-1D95-4C7D-AB7B-49624AE3CE43.jpg" class=animated-image></span>
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\4F3A0C59-3EE9-4315-990C-607FD31FE3E2.JPG" class=animated-image></span>
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\937.jpg" class=animated-image></span>
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\5901.jpg" class=animated-image></span>
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\luv9729.jpg" class=animated-image></span>
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\luvc5c7.jpg"class=animated-image></span>
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\WhatsApp Video 2024-12-15 at 17.09.47_3468cfab_004.jpg"class=animated-image></span>
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\WhatsApp Video 2024-12-15 at 17.09.47_3468cfab_008.jpg"class=animated-image></span>
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\WhatsApp Video 2024-12-15 at 17.09.47_3468cfab_019.jpg"class=animated-image></span>
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\WhatsApp Video 2024-12-15 at 17.09.47_3468cfab_021.jpg"class=animated-image></span>
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\5913.jpg" class=animated-image></span>
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\IMG_0633.jpg" class=animated-image></span>
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\IMG_0634.jpg" class=animated-image></span>
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\IMG_0640.jpg" class=animated-image></span>
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\IMG_0636.jpg" class="animated-image"></span>
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\IMG_5945.jpg" alt="Picture"></span>
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\IMG_5962.jpg" alt="Picture"></span>
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\IMG_5963.jpg" alt="Picture"></span>
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\IMG_5964.jpg" alt="Picture"></span>
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\IMG_5971.jpg" alt="Picture"></span>
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\IMG_5974.jpg" alt="Picture"></span>
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\IMG_6040.jpg" alt="Picture"></span>
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\IMG_6095.JPG" alt="Picture"></span>
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\IMG_6148.JPG" alt="Picture"></span>
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\IMG_6502.jpg" alt="Picture"></span>
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\yayaya2.jpg" alt="Picture"></span>
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\luv1.jpg" alt="picture"></span>
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\luv2.jpg" alt="picture"></span>
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\luv3.jpg" alt="picture"></span>
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\luv4.jpg" alt="picture"></span>
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\yayaya5.jpg" alt="picture"></span>
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\luv5.jpg" alt="picture"></span>
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\uv5899.jpg" alt="Picture 1"></span>
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\luv7.jpg" alt="picture"></span>
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\luv8f9c.jpg" alt="picture"></span>
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\yayaya4.jpg" alt="picture"></span>
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\luv3056.jpg" alt="picture"></span>
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\luv3156.jpg" alt="picture"></span>
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\luv3486.jpg" alt="picture"></span>
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\yaya.jpg" alt="picture"></span>
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\yaya2.jpg" alt="picture"></span>
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\yayaya.jpg" alt="picture"></span>
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\yaya3.jpg" alt="picture"></span>
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\yaya5.jpg" alt="picture"></span>
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\yayay4.jpg" alt="picture"></span>
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\luv3488.jpg" alt="picture"></span>
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\yayaya3.jpg" alt="picture"></span>
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\luv3648.jpg" alt="picture"></span>
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\luv4574.jpg" alt="picture"></span>
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\luv4577.jpg" alt="picture"></span>
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\luv4618.jpg" alt="picture"></span>
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\luv4622.jpg" alt="picture"></span>
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\yayaya6.jpg"></span>
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\luv4987.jpg" alt="picture"></span>
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\luv4989.jpg" alt="picture"></span>
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\luv5317.jpg" alt="picture"></span>
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\luv5319.jpg" alt="picture"></span>
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\luv5390.jpg" alt="picture"></span>
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\luv5787.jpg" alt="picture"></span>
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\yayaya7.jpg" alt="picture"></span>
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\luv5814.jpg" alt="picture"></span>
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\luv5850.jpg" alt="picture"></span>
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\luv5869.jpg" alt="picture"></span>
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\luv5870.jpg" alt="picture"></span>
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\luv5891.jpg" alt="picture"></span>
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\luv5892.gif" alt="picture"></span>
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\baru.jpg" alt="picture"></span>
+    <span><img src="C:\Users\cindy\Cindy's Paper\notesforyou\images\jpg.gif" alt="picture"></span>
+    </div>   
+    </div>
+    <button class="next-button" onclick="goToNextPage()">Back</button>
+    <script>
+      function goToNextPage() {
+        window.location.href = 'file:///C:/Users/cindy/Cindy\'s%20Paper/notesforyou/The things I Loved about You.html';
+      }
+    </script> 
+    <button class="next-button" onclick="goToNextPage()">Next</button>
+    <script>
+      function goToNextPage() {
+        // Use double backslashes and escape the single quote
+        window.location.href = 'file:///C:/Users/cindy/Cindy\'s%20Paper/notesforyou/Love Quiz!.html';
+      }
+    </script>
+      
+    
+   <footer>
+    <p>&copy; Created By Cimut | <a href="#">@cindymegautari</a></p>
+  </footer>
+</body>
+</html>
